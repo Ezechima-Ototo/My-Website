@@ -1,0 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Golos+Text&family=Open+Sans:wght@300&display=swap');
+
+/* ||RESET */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 00px;
+}
+
+/* || VARIABLE */
+:root{
+    /* FONTS */
+    --FF: 'Golos Text', sans-serif;
+    --FS: clamp(1rem, 2vh, 1.5rem);
+
+    /* COLORS */
+    --BGCOLOR:aliceblue;
+    --BGCOLOR-BODY: lightgray;
+    --HEADER-BGCOLOR: coral;
+    --HEADER-COLOR:#FFF;
+    --LIGHT-COLOR:#FFF;
+    --DARK-COLOR:#333;
+
+    /* BORDERS */
+    --BORDER-COLOR: #333;
+    --BORDER:1px solid var(--BORDER-COLOR);
+
+}
+
+/* || UTILITY CLASSESS */
+p{
+    line-height: 1.6em;
+}
+
+.highlight {
+    border-bottom: 2px dashed var(--LIGHT-COLOR);
+}
+
+.offscreen{
+    position: absolute;
+    left: -10000px;
+}
+
+/* || GENERAL STYLES */
+html{
+    background-color: var(--BGCOLOR);
+    min-height: 100vh;
+    font-family: var(--FF);
+    font-size: var(--FS);
+}
+
+body{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.container{
+    width: 80%;
+    margin:auto;
+}
+
+/* HEADER STYLES */
+.header{
+    background-color: var(--HEADER-BGCOLOR);
+    padding: 5px;
+    border-bottom: var(--BORDER);
+    box-shadow: 0 10px 5px -6px var(--BORDER-COLOR);
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+header button{
+    display: none;
+}
+
+.header__h1{
+    color: var(--HEADER-COLOR);
+    font-size: 3rem;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.header__ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.header li{
+    padding: 5px;
+}
+
+.header li:hover, .header li:focus{
+    background-color: var(--LIGHT-COLOR);
+    transition: all 0.3s;
+    transform: scale(1.2);
+    border-radius: 10px;
+}
+
+.header a{
+    text-decoration: none;
+    color: var(--LIGHT-COLOR);
+}
+
+.header a:hover, .header a:focus{
+    color: var(--HEADER-BGCOLOR);
+}
+
+/* HERO SECTION */
+#hero{
+    background-image: url('../img/fantasy-g6f604df9d_1920.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 400px;    
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+#hero p{
+    font-size: 5rem;
+    color: var(--LIGHT-COLOR);
+    font-weight: bold;
+    text-shadow: 5px 5px 6px #000;
+}
+
+/* MAIN */
+main{
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+}
+
+article{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
+article section{
+    background-color: var(--LIGHT-COLOR);
+    padding: 1rem;
+}
+
+article section:hover, article section:focus{
+    background-color: midnightblue;
+    color: var(--HEADER-COLOR);
+    transition: all 1s;
+    transform: scale(95%);
+}
+
+article aside{
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--LIGHT-COLOR);
+    padding: 1rem;
+}
+
+article aside:hover, article aside:focus{
+    background-color: midnightblue;
+    color: var(--HEADER-COLOR);
+    transition: all 1s;
+    transform: scale(95%);
+}
+
+article section a{
+    color: red;
+}
+
+article section a:hover, article section a:hover{
+    opacity: 0.6;;
+}
+
+article aside a{
+    color: var(--LIGHT-COLOR);
+}
+
+article aside a:hover, article aside a:hover{
+    opacity: 0.6;
+}
+
+.main{
+    border-bottom: 2px dashed coral;
+}
+
+figure img{
+    max-width: 45%;
+    border: 5px double var(--DARK-COLOR);
+    border-radius:50%;
+    box-sizing: border-box;
+}
+
+.profile-pic{
+    display: flex;
+    justify-content: flex-start;
+    align-self: center;
+}
+
+.profile-pic figure{
+    background-color: red;
+}
+
+
+
+/* FOOTER */
+
+footer{
+    margin-top: 20px;
+    background-color: var(--HEADER-BGCOLOR);
+    color: var(--LIGHT-COLOR);
+    text-align: center;
+    padding: 0.5rem;
+    position: sticky;
+    bottom: 0;
+}
+
+
+/* ||MEDIA QUERIES */
+@media screen and (max-width:600px) {
+    .header__h1{
+        font-size: 2.5rem;
+    }
+    .header__nav{
+        display: none;
+        transform-origin: top center;
+    }
+
+    .header button{
+        display: block;
+    }
+
+    .header section{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    /* NAV ICON BUTTON STARTS */
+    .menu-button{
+        background-color: transparent;
+        border: none;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .menu-icon,
+    .menu-icon::before,
+    .menu-icon::after{
+        background-color: var(--LIGHT-COLOR);
+        width: 40px;
+        height: 5px;
+        border-radius: 5px;
+        position: absolute;
+        transition: all 0.3s;
+        cursor: pointer;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after{
+        content: "";
+    }
+
+    .menu-icon::before{
+        transform: translate(-20px, 12px);
+    }
+
+    .menu-icon::after{
+        transform: translate(-20px, -12px);
+    }
+    /* NAV ICON BUTTON ENDS */
+
+    /* NAV ICON ANIMATION */
+    :is(header:hover, header:focus-within) .menu-icon{
+        background-color: transparent;
+    }
+
+    :is(header:hover, header:focus-within) .menu-icon::after{
+        transform: translate(-20px) rotate(45deg);
+    }
+
+    :is(header:hover, header:focus-within) .menu-icon::before{
+        transform: translate(-20px) rotate(-45deg);
+    }
+
+    :is(header:hover, header:focus-within) nav{
+        display: block;
+    }
+
+    /* HERO START */
+    #hero p{
+        padding-top:20px ;
+        font-size: clamp(2.5rem, 3vh, 3rem);
+    }
+
+    article{
+        display: block;
+    }
+
+    article section{
+        margin-bottom: 20px;
+        transition: all 0.3s;
+        animation: Slide 3s ease-in-out forwards;
+    }
+
+    @keyframes Slide {
+        0%{
+            transform: translate(130%);
+        }
+
+        50%{
+            transform: translate(-130%);
+        }
+
+        100%{
+            transform: translate(0);
+        }
+    }
+
+    article aside{
+        margin-bottom: 20px;
+
+    }
+
+    article aside:hover, article aside:focus{
+        transition: all 0.3s;
+        animation: Rotate 3s ease-in-out 2 alternate;
+    }
+
+    @keyframes Rotate {
+        0%{
+            transform: rotate(0);
+        }
+
+        33%{
+            transform: translateX(600px) rotate(360deg);
+        }
+
+        66%{
+            transform: translateX(-600px) rotate(-360deg);
+        }
+
+        100%{
+            transform: translate(0) ;
+        }
+    }
+}
